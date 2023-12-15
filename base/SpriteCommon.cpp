@@ -167,7 +167,28 @@ void SpriteCommon::PsoGenerate()
 		blendDesc.RenderTarget[0].BlendOpAlpha = D3D12_BLEND_OP_ADD;
 		blendDesc.RenderTarget[0].DestBlendAlpha = D3D12_BLEND_ZERO;
 
-	
+		////加算
+		//blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+		//blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+		//blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_ONE;
+		
+		//減算
+	/*	blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+		blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_REV_SUBTRACT;
+		blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_ONE*/;
+
+		//
+			//乗算
+	/*	blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+		blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+		blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_ONE;*/
+
+		//スクリーン合成
+		blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_INV_DEST_COLOR;
+		blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+		blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_ONE;
+
+
 	#pragma endregion
 
 	#pragma region RasterizerStateの設定を行う
@@ -345,3 +366,7 @@ IDxcBlob* SpriteCommon::CompileShader(const std::wstring& filePath, const wchar_
 }
 
 
+enum BlendMode
+{
+	kBlendModeNone,
+};
