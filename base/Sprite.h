@@ -5,6 +5,7 @@
 #include"VertexData.h"
 class Sprite
 {
+
 public:
 	void Initialize(DirectXCommon* directXCommon , SpriteCommon* SpriteCommon_ );
 
