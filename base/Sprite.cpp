@@ -104,7 +104,7 @@ void Sprite::Draw(DirectXCommon* directXCommon)
 	ImGui::Begin("colae_");
 
 	ImGui::ColorEdit4("color 1", &colae_.x);
-	
+
 	ImGui::End();
 #pragma endregion
 
